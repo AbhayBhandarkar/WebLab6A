@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhay Bhandarkar - Blog</title>
+    <link rel="stylesheet" href="blog_styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .blog-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-widget h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .blog-widget .date {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .blog-widget p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .blog-widget button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .blog-widget button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="blog-container">
+        <div class="blog-widget">
+            <h2>Fine-Tuning Google mT5 for English-Kannada Transliteration</h2>
+            <button id="readMoreBtn">Read More</button>
+            <div id="blogContent" class="hidden">
+                <p class="date">Published: October 26, 2023</p>
+
+                <p>My journey into the world of Natural Language Processing took an unexpected turn when I embarked on a project to develop an English-Kannada transliteration model. The goal was ambitious: to automate the conversion of English text into its Kannada equivalent, a task that would significantly aid government officials in their daily operations. I decided to leverage the power of Google's mT5, a multilingual text-to-text transformer, and fine-tune it on the vast Aksharantar dataset, a collection of approximately 2.9 million lines of parallel English-Kannada text.</p>
+
+                <p>The initial phase was filled with excitement. Setting up the environment, preprocessing the data, and crafting the fine-tuning script were challenging but rewarding. However, the real test began when I started the training process. I was working on a remote server via SSH, and as fate would have it, my connection was repeatedly interrupted. Each disconnection meant restarting the training from scratch. Imagine the frustration of watching hours of progress vanish into thin air, not once, not twice, but a staggering seven times!</p>
+
+                <p>Each failure was a blow, but also a lesson. I learned to implement checkpointing and resume training from the last saved state. I also worked on improving the stability of my SSH connection. The sheer volume of data, coupled with the computational intensity of the mT5 model, made the process incredibly time-consuming. There were moments of doubt, where I questioned if the end result would justify the effort. But I pressed on, driven by the potential impact of this project.</p>
+
+                <p>Finally, after what felt like an eternity, the training was complete. The moment of truth arrived when I evaluated the model's performance. To my delight, it achieved an accuracy of 74%, a significant milestone that validated all the sleepless nights and countless restarts. The model's ability to accurately transliterate English text into Kannada was a testament to the power of fine-tuning and the robustness of the mT5 architecture.</p>
+
+                <p>The success of this project was not just a personal achievement; it had practical implications. Government officials were now able to automate a significant portion of their transliteration tasks, saving valuable time and resources. It was a humbling experience to witness how machine learning could bridge language barriers and facilitate communication.</p>
+
+                <p>This journey taught me invaluable lessons about perseverance, problem-solving, and the importance of robust infrastructure. It also reinforced my passion for machine learning and my belief in its potential to transform lives. If you're facing similar challenges, remember that every setback is an opportunity to learn and grow. Keep pushing forward, and you might just achieve something extraordinary.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const readMoreBtn = document.getElementById('readMoreBtn');
+        const blogContent = document.getElementById('blogContent');
+
+        readMoreBtn.addEventListener('click', () => {
+            blogContent.classList.toggle('hidden');
+            readMoreBtn.textContent = blogContent.classList.contains('hidden') ? 'Read More' : 'Read Less';
+        });
+    </script>
+</body>
+</html>

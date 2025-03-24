@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: white;
+    width: 80%;
+    max-width: 900px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: center; 
+}
+
+.logo {
+    width: 50px; 
+    height: auto;
+    margin-right: 1rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+section p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    margin-bottom: 1rem;
+}
+
+.experience ul {
+    margin-top: 1rem;
+}
+
+.experience h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.experience p {
+    font-size: 1rem;
+    color: #777;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 2rem;
+}
+
+.publications p, .hobbies ul {
+    font-size: 1rem;
+    color: #666;
+}
+

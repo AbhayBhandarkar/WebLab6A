@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Book Order Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .form-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        fieldset {
+            margin-bottom: 2rem;
+            border: 1px solid #e0e0e0;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        legend {
+            font-weight: 600;
+            padding: 0 1rem;
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.7rem;
+            font-weight: 500;
+            color: #444;
+        }
+
+        input, select {
+            width: calc(100% - 1.2rem);
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(to right, #007bff, #66a6ff);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, #0056b3, #4a89dc);
+        }
+
+        datalist option {
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="bookOrderForm" autocomplete="on">
+            <fieldset>
+                <legend>Customer Information</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" autofocus placeholder="Enter your full name" required>
+
+                <label for="telephone">Telephone:</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="Enter your phone number (10 digits)" pattern="[0-9]{10}" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address(es)" multiple required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Book Selection</legend>
+                <label for="book">Select Book:</label>
+                <input list="books" id="book" name="book" placeholder="Choose a book">
+                <datalist id="books">
+                    <option value="The Lord of the Rings"></option>
+                    <option value="Pride and Prejudice"></option>
+                    <option value="1984"></option>
+                    <option value="To Kill a Mockingbird"></option>
+                    <option value="The Hitchhiker's Guide to the Galaxy"></option>
+                    <option value = "Dune"></option>
+                    <option value= "Harry Potter and the Sorcerer's Stone"></option>
+                </datalist>
+
+                <label for="quantity">Quantity (Max 5):</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="5" placeholder="Enter quantity">
+            </fieldset>
+
+            <input type="submit" value="Place Order">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('bookOrderForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            alert('Order Placed!');
+        });
+    </script>
+</body>
+</html>
