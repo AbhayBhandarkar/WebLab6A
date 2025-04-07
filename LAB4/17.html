@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Info Form</title>
+</head>
+<body>
+
+<h1>Enter Your Details</h1>
+
+<form id="userInfoForm" onsubmit="displayInfo(event)">
+    <div>
+        <label for="userName">Name:</label>
+        <input type="text" id="userName" name="userName" required>
+    </div>
+    <div>
+        <label for="userAge">Age:</label>
+        <input type="number" id="userAge" name="userAge" required min="1">
+    </div>
+    <div>
+        <label for="userHometown">Hometown:</label>
+        <input type="text" id="userHometown" name="userHometown" required>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<div id="userInfoOutput" style="margin-top: 20px;">
+    </div>
+
+<script>
+    function displayInfo(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get values from the form
+        const name = document.getElementById('userName').value;
+        const age = parseInt(document.getElementById('userAge').value);
+        const hometown = document.getElementById('userHometown').value;
+        const outputDiv = document.getElementById('userInfoOutput');
+
+        // Calculate approximate birth year
+        const currentYear = new Date().getFullYear();
+        const birthYear = currentYear - age;
+
+        // Escape hometown for URL (handles spaces, special chars)
+        const encodedHometown = encodeURIComponent(hometown);
+        // Create search URL (using Google as example)
+        const searchUrl = `https://www.google.com/search?q=${encodedHometown}`;
+
+        // Create the output HTML
+        let outputHtml = `
+            <p>Hello, ${escapeHtml(name)}!</p>
+            <p>You were likely born in ${birthYear}.</p>
+            <p>
+                Search for your hometown:
+                <a href="${searchUrl}" target="_blank" rel="noopener noreferrer">
+                    ${escapeHtml(hometown)} on Google
+                </a>
+            </p>
+        `;
+
+        // Display the output on the page
+        outputDiv.innerHTML = outputHtml;
+    }
+
+     // Helper function to prevent basic HTML injection (same as Q12)
+    function escapeHtml(unsafe) {
+        if (typeof unsafe !== 'string') return unsafe;
+        return unsafe
+             .replace(/&/g, "&amp;")
+             .replace(/</g, "&lt;")
+             .replace(/>/g, "&gt;")
+             .replace(/"/g, "&quot;")
+             .replace(/'/g, "&#039;");
+    }
+</script>
+
+</body>
+</html>

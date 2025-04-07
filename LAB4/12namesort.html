@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sort Names</title>
+</head>
+<body>
+    <h1>Sorted Names</h1>
+    <button onclick="startNameEntry()">Enter Names</button>
+    <div id="output"></div>
+
+    <script>
+        function startNameEntry() {
+            const names = [];
+            let name;
+
+            while (true) {
+                name = prompt("Enter a name (or press Cancel to finish):");
+                if (name === null) { // User pressed Cancel
+                    break;
+                }
+                if (name.trim() !== "") { // Add non-empty names
+                    names.push(name.trim());
+                } else {
+                    alert("Please enter a valid name."); // Optional: prompt again if empty
+                }
+            }
+
+            if (names.length > 0) {
+                names.sort(); // Sorts alphabetically in place
+
+                const outputDiv = document.getElementById('output');
+                let listHtml = "<h2>Sorted Names:</h2><ol>";
+                names.forEach(n => {
+                    listHtml += `<li>${escapeHtml(n)}</li>`; // Use escaping for safety
+                });
+                listHtml += "</ol>";
+                outputDiv.innerHTML = listHtml;
+            } else {
+                 document.getElementById('output').innerHTML = "<p>No names were entered.</p>";
+            }
+        }
+
+        // Helper function to prevent basic HTML injection
+        function escapeHtml(unsafe) {
+            if (typeof unsafe !== 'string') return unsafe;
+            return unsafe
+                 .replace(/&/g, "&amp;")
+                 .replace(/</g, "&lt;")
+                 .replace(/>/g, "&gt;")
+                 .replace(/"/g, "&quot;")
+                 .replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+</html>

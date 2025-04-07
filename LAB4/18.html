@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rollover Image</title>
+</head>
+<body>
+
+<h1>Image Rollover Effect</h1>
+
+<img
+    id="rolloverImage"
+    src="image1.jpg" /* Replace with the path to your first image */
+    alt="Initial Image"
+    onmouseover="changeImage('image2.jpg')" /* Replace with path to second image */
+    onmouseout="changeImage('image1.jpg')"  /* Path to first image again */
+    width="200" /* Specify dimensions (ensure both images are same size) */
+    height="150"
+/>
+
+<p>Hover over the image above.</p>
+
+<script>
+    function changeImage(newImageSrc) {
+        const imgElement = document.getElementById('rolloverImage');
+        imgElement.src = newImageSrc;
+    }
+
+    // Optional: Preload the rollover image to prevent delay on first hover
+    const rolloverImg = new Image();
+    rolloverImg.src = 'image2.jpg'; // Replace with path to second image
+
+</script>
+
+</body>
+</html>

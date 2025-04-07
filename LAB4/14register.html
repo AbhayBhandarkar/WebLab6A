@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body { font-family: sans-serif; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="number"] {
+            width: 95%;
+            max-width: 300px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .error-message { color: red; font-size: 0.9em; margin-top: 5px; }
+        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+<h1>Register</h1>
+
+<form id="registrationForm" onsubmit="return validateForm(event)">
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <div id="nameError" class="error-message"></div>
+    </div>
+
+    <div class="form-group">
+        <label for="username">User Name:</label>
+        <input type="text" id="username" name="username">
+        <div id="usernameError" class="error-message"></div>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <div id="passwordError" class="error-message"></div>
+    </div>
+
+    <div class="form-group">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword">
+        <div id="confirmPasswordError" class="error-message"></div>
+    </div>
+
+     <div class="form-group">
+        <label for="yearOfBirth">Year of Birth:</label>
+        <input type="number" id="yearOfBirth" name="yearOfBirth" placeholder="YYYY">
+        <div id="yobError" class="error-message"></div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <div id="emailError" class="error-message"></div>
+    </div>
+
+    <div class="form-group">
+        <input type="checkbox" id="terms" name="terms">
+        <label for="terms" style="display: inline;">I agree to the terms and conditions</label>
+        <div id="termsError" class="error-message"></div>
+    </div>
+
+    <button type="submit">Register</button>
+
+</form>
+
+<script src="validation.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Number Average</title>
+</head>
+<body>
+    <h1>Random Number Generator & Average</h1>
+    <button onclick="generateNumbers()">Generate Random Numbers</button>
+    <div id="results"></div>
+
+    <script>
+        function generateNumbers() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // Clear previous results
+
+            const countInput = prompt("How many random numbers do you wish to generate?");
+            const count = parseInt(countInput);
+
+            if (isNaN(count) || count <= 0) {
+                alert("Please enter a valid positive number.");
+                resultsDiv.innerHTML = "<p>Invalid input provided.</p>";
+                return;
+            }
+
+            const randomNumbers = [];
+            let sum = 0;
+
+            for (let i = 0; i < count; i++) {
+                // Generate random number between 0 (inclusive) and 1 (exclusive),
+                // scale it (e.g., 1 to 100), and make it an integer
+                const randomNumber = Math.floor(Math.random() * 100) + 1; // Example: 1-100
+                randomNumbers.push(randomNumber);
+                sum += randomNumber;
+            }
+
+            const average = sum / count;
+
+            // Display results
+            let outputHtml = `<h2>Generated Numbers:</h2>`;
+            outputHtml += `<p>${randomNumbers.join(', ')}</p>`; // Show the numbers
+            outputHtml += `<h2>Average:</h2>`;
+            outputHtml += `<p>${average.toFixed(2)}</p>`; // Show average rounded to 2 decimal places
+
+            resultsDiv.innerHTML = outputHtml;
+        }
+    </script>
+</body>
+</html>
